@@ -1,10 +1,12 @@
 from classes import Person, Resource, Status
-from termcolor import colored, COLORS
+from gamestate import GameState
+from termcolor import colored
 import os, math
 
 class Displayer:
-    def __init__(self, witdh):
+    def __init__(self, witdh, gamestate):
         self.witdh = witdh
+        self.game = gamestate
 
     def safe_get(self, ls, idx, default=None):
         try:
@@ -23,14 +25,14 @@ class Displayer:
     def line(self):
         print("-" * self.witdh)
 
-    def stat(self, name, color):
-        text = f"{name}: {'■' * 7}{'□' * 3}"
+    def stat(self, name, color, var):
+        text = f"{name}: {'■' * var}{'□' * (10 - var)}"
         return (colored(text, color), len(text))
 
     def stats(self):
         string = ""
-        (morale, len1) = self.stat("Morale", "light_green")
-        (heat, len2) = self.stat("Heat", "yellow")
+        (morale, len1) = self.stat("Morale", "light_green", self.game.morale)
+        (heat, len2) = self.stat("Heat", "yellow", self.game.heat)
 
         space = math.floor((self.witdh - len1 - len2) / 3)
         spaces = ' ' * space
@@ -39,12 +41,15 @@ class Displayer:
 
         print(string)
 
-    def screen(self, people, resources):
+    def screen(self):
+        people = self.game.people
+        resources = self.game.resources
+
         height = max(len(people), len(resources))
         string = ""
 
         os.system("clear")
-        self.heading("Day 1")
+        self.heading(f"Day {self.game.day}")
         self.stats()
         self.line()
 
@@ -67,9 +72,11 @@ class Displayer:
 
         print("-" * self.witdh)
 
-d = Displayer(80)
 p = Person("Jack", 4, Status.FREEZING, 4)
 r2 = Resource("Heat", 10, "yellow")
 r = Resource("Wood", 10, "green")
 
-d.screen([p], [r, r2])
+g = GameState([p], [r, r2], 9, 3, 1)
+d = Displayer(80, g)
+
+d.screen()
