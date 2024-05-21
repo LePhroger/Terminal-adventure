@@ -1,3 +1,5 @@
+
+
 print('Hello Adventurer, welcome to the Terminal Adventure ')
 
 # player set up
@@ -15,3 +17,13 @@ if choise in y:
 else:
     print('''No problem ',p_name,' If anything 
 type Help to recive instructions''')
+    
+
+Alive = True
+
+def Help():
+    print('''You are a survior, leading a small comunity''')
+    
+
+while Alive:
+    print("Inster game here")
