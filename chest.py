@@ -1,3 +1,7 @@
+import pygame as py
+
+py.draw()
+
 class Chest:
     def __init__(self, item):
         self.item = item
