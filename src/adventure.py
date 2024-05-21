@@ -1,4 +1,7 @@
 
+import gamestate
+
+Names = ['John', 'Kevin', 'Tom', 'Sheldon', 'Joel', 'Daren']
 
 print('Hello Adventurer, welcome to the Terminal Adventure ')
 
