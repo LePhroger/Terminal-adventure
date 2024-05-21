@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from termcolor import colored
 from enum import Enum
+import random as rd
 
 class Status(Enum):
     NONE = 0
@@ -40,3 +41,13 @@ class Resource:
         string += " | "
         string += colored(f"{self.name.rjust(6, ' ')}", self.color)
         return string
+    
+
+class Chest:
+    def __init__(self, numb_1, numb_2):
+        self.slot_1 = numb_1
+        self.slot_2 = numb_2
+        self.item = rd.randint(numb_1, numb_2)
+    
+    def __repr__(self):
+        return f"{self.item}"
