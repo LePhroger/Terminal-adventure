@@ -51,7 +51,3 @@ class Chest:
     
     def __repr__(self):
         return f"{self.item}"
-
-p1 = Chest()
-
-print(p1)
