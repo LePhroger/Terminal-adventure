@@ -1,4 +1,3 @@
-
 import gamestate
 import random as rd
 
@@ -36,14 +35,29 @@ def Help():
     
 print("Inster game here")
 print(People)
-print('/n')
+print('\n')
 
 while Alive:    
     print('What is your next move? ')
     choise = input('')
 
     if choise in gamestate.Help:
-        print('Instructions here ')
+        print('''Comand list:
+next day - next_day, skip, next
+Interacting - interact, inspect, pick, look
+Help - help, Help
+Quit - end, terminate, quit''')
     elif choise in gamestate.Continue:
-        print('Next day it is ')
+        print('Next day it is ', gamestate.Day)
         gamestate.Day = gamestate.Day + 1
+    elif choise in gamestate.Inspect:
+        print(People)
+        print('Which person? ')
+        choise = input('')
+        # choise = the person whose number is in the list displayed
+    elif choise in gamestate.Quit:
+        print('Game over')
+        Alive = False
+
+
+    print('\n')

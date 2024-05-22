@@ -8,6 +8,8 @@ No = ['n', 'no']
 Continue = ['next day', 'next', 'skip']
 Names = ['John', 'Kevin', 'Tom', 'Sheldon', 'Joel', 'Daren']
 Help = ['help','Help']
+Inspect = ['pick', 'inspect', 'look', 'Interact']
+Quit = ['quit', 'terminate', 'end']
 
 # Variables
 Day = 1
