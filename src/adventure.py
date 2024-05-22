@@ -1,9 +1,11 @@
-
 import gamestate
 import random as rd
 
 # Lists
 People = []
+# Variables
+people_numb = 0
+
 
 print('Hello Adventurer, welcome to the Terminal Adventure ')
 
@@ -20,13 +22,15 @@ else:
     print('No problem ',p_name,''' If anything 
 type Help to recive instructions''')
 
-print('What will be the amount of people in your comunity? 3 to 6 ')
-choise = int(input(''))
+def dificulty():
+    print('What will be the amount of people in your comunity? 3 to 6 ')
+    choise = int(input(''))
 
-for i in range(0,choise):
-    person = gamestate.Person(gamestate.Names[rd.randint(0,5)],4,10,2)
-    People.append(person)
+    for i in range(0,choise):
+        person = gamestate.Person(gamestate.Names[rd.randint(0,5)],4,10,2)
+        People.append(person)
     
+dificulty()
 
 Alive = True
 
@@ -36,14 +40,29 @@ def Help():
     
 print("Inster game here")
 print(People)
-print('/n')
+print('\n')
 
 while Alive:    
     print('What is your next move? ')
     choise = input('')
 
     if choise in gamestate.Help:
-        print('Instructions here ')
+        print('''Comand list:
+next day - next_day, skip, next
+Interacting - interact, inspect, pick, look
+Help - help, Help
+Quit - end, terminate, quit''')
     elif choise in gamestate.Continue:
-        print('Next day it is ')
+        print('Next day it is ', gamestate.Day)
         gamestate.Day = gamestate.Day + 1
+    elif choise in gamestate.Inspect:
+        print(People)
+        print('Which person? ')
+        choise = input('')
+        # choise = the person whose number is in the list displayed
+    elif choise in gamestate.Quit:
+        print('Game over')
+        Alive = False
+
+
+    print('\n')

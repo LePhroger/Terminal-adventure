@@ -57,16 +57,5 @@ class Resource:
         return string
     
 
-class Events:
-    def __init__(self, numb_1, numb_2):
-        self.slot_1 = numb_1
-        self.slot_2 = numb_2
-        self.item = rd.randint(numb_1, numb_2)
-        if self.item == self.numb_2:
-            self.item = True
-        else:
-            self.item = False
-    
-    def __repr__(self):
-        return f"{self.item}"
+
 
