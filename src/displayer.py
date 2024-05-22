@@ -1,6 +1,7 @@
 from classes import Person, Resource, Status
 from gamestate import GameState
 from termcolor import colored
+from getch import getch
 import os, math
 
 class Displayer:
@@ -70,7 +71,7 @@ class Displayer:
 
             print(string)
 
-        print("-" * self.witdh)
+        self.line()
 
 p = Person("Jack", 4, Status.FREEZING, 4)
 r2 = Resource("Heat", 10, "yellow")
