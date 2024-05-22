@@ -17,24 +17,33 @@ choise = input('')
 if choise in gamestate.Yes:
     print('INSERT LORE HERE')
 else:
-    print('''No problem ',p_name,' If anything 
+    print('No problem ',p_name,''' If anything 
 type Help to recive instructions''')
 
 print('What will be the amount of people in your comunity? 3 to 6 ')
-gamestate.dificulty = choise = int(input(''))
+choise = int(input(''))
 
 for i in range(0,choise):
-    print('Asing people here')
-    person = gamestate.Person(gamestate.Names[rd.randint(0,5)],'',10,2)
+    person = gamestate.Person(gamestate.Names[rd.randint(0,5)],4,10,2)
     People.append(person)
     
 
 Alive = True
 
 def Help():
-    print('''You are a survior, leading a small comunity''')
+    if choise == gamestate.Help:
+        print('''You are a survior, leading a small comunity''')
     
+print("Inster game here")
+print(People)
+print('/n')
 
-while Alive:
-    print("Inster game here")
-    Alive = False
+while Alive:    
+    print('What is your next move? ')
+    choise = input('')
+
+    if choise in gamestate.Help:
+        print('Instructions here ')
+    elif choise in gamestate.Continue:
+        print('Next day it is ')
+        gamestate.Day = gamestate.Day + 1

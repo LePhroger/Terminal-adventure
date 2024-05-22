@@ -5,9 +5,13 @@ from typing import List
 # Lists
 Yes = ['y', 'yes']
 No = ['n', 'no']
+Continue = ['next day', 'next', 'skip']
 Names = ['John', 'Kevin', 'Tom', 'Sheldon', 'Joel', 'Daren']
+Help = ['help','Help']
+
 # Variables
-dificulty = 0
+Day = 1
+
 
 @dataclass
 class GameState:
