@@ -72,12 +72,3 @@ class Displayer:
             print(string)
 
         self.line()
-
-p = Person("Jack", 4, Status.FREEZING, 4)
-r2 = Resource("Heat", 10, "yellow")
-r = Resource("Wood", 10, "green")
-
-g = GameState([p], [r, r2], 9, 3, 1)
-d = Displayer(80, g)
-
-d.screen()

@@ -14,8 +14,9 @@ class Person:
     health: int
     status: Status
     status_left: int
+    selected: bool = False
 
-    LENGTH = 10 + 3 + 5 + 3 + 5
+    LENGTH = 10 + 3 + 5 + 3 + 5 + 2
 
     def __repr__(self):
         string = f"{self.name.ljust(10, ' ')} | {('♥' * self.health).ljust(5, ' ')}"
@@ -26,6 +27,11 @@ class Person:
         else:
             string += ' ' * 5
 
+        if self.selected:
+            string += " <"
+        else:
+            string += "  "
+
         return string
 
 @dataclass
@@ -33,11 +39,19 @@ class Resource:
     name: str
     amount: int
     color: str
+    selected: bool = False
     
-    LENGTH = 3 + 3 + 6
+    LENGTH = 2 + 3 + 3 + 6
 
     def __repr__(self):
-        string = colored(f"{str(self.amount).rjust(3, ' ')}", self.color)
+        string = ""
+
+        if self.selected:
+            string += "> "
+        else:
+            string += "  "
+
+        string += colored(f"{str(self.amount).rjust(3, ' ')}", self.color)
         string += " | "
         string += colored(f"{self.name.rjust(6, ' ')}", self.color)
         return string
