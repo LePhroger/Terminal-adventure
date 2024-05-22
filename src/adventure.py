@@ -3,6 +3,9 @@ import random as rd
 
 # Lists
 People = []
+# Variables
+people_numb = 0
+
 
 print('Hello Adventurer, welcome to the Terminal Adventure ')
 
@@ -19,13 +22,15 @@ else:
     print('No problem ',p_name,''' If anything 
 type Help to recive instructions''')
 
-print('What will be the amount of people in your comunity? 3 to 6 ')
-choise = int(input(''))
+def dificulty():
+    print('What will be the amount of people in your comunity? 3 to 6 ')
+    choise = int(input(''))
 
-for i in range(0,choise):
-    person = gamestate.Person(gamestate.Names[rd.randint(0,5)],4,10,2)
-    People.append(person)
+    for i in range(0,choise):
+        person = gamestate.Person(gamestate.Names[rd.randint(0,5)],4,10,2)
+        People.append(person)
     
+dificulty()
 
 Alive = True
 
