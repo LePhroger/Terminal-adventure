@@ -1,8 +1,6 @@
 
 import gamestate
 
-Names = ['John', 'Kevin', 'Tom', 'Sheldon', 'Joel', 'Daren']
-
 print('Hello Adventurer, welcome to the Terminal Adventure ')
 
 # player set up
@@ -12,10 +10,7 @@ p_name = input('')
 print('Okay ', p_name, " Would you like an introduction? ")
 choise = input('')
 
-y = ['y', 'yes']
-n = ['n', 'no']
-
-if choise in y:
+if choise in gamestate.y:
     print('INSERT LORE HERE')
 else:
     print('''No problem ',p_name,' If anything 
