@@ -1,7 +1,6 @@
 from classes import Person, Resource, Status
 from gamestate import GameState
 from termcolor import colored
-from getch import getch
 import os, math
 
 class Displayer:
@@ -72,3 +71,26 @@ class Displayer:
             print(string)
 
         self.line()
+
+    def prompt(self, text):
+        self.screen()
+        
+        space = 0
+        for line in text.split('\n'):
+            new_space = math.floor((self.witdh - len(line)) / 2)
+            if new_space < space:
+                space = new_space
+
+        for line in text.split('\n'):
+            print(f"{' ' * space}{line}")
+
+        return space
+
+    def question(self, i, text, question, choices):
+        self.screen()
+
+        self.prompt(text)
+        print("\n")
+        self.prompt(question)
+
+        

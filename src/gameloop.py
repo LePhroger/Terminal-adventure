@@ -2,12 +2,15 @@ from classes import Person, Resource, Status
 from displayer import Displayer
 from gamestate import GameState
 from getch import getch
-import math
 
 class GameLoop:
     def __init__(self, gamestate):
         self.state = gamestate
         self.displayer = Displayer(80, gamestate)
+
+    def do_day(self):
+        # Morning Phase
+        self.displayer.prompt("Hello\nYou had some event happen!\n\nPress any key to continue...")
 
     def choose_person(self):
         self.state.people[0].selected = True
@@ -77,4 +80,4 @@ r = Resource("Wood", 10, "green")
 
 g = GameState([p, p2], [r, r2], 9, 3, 1)
 gl = GameLoop(g)
-print(gl.choose_resource().name)
+gl.do_day()
