@@ -7,6 +7,9 @@ y = ['y', 'yes']
 n = ['n', 'no']
 Names = ['John', 'Kevin', 'Tom', 'Sheldon', 'Joel', 'Daren']
 
+# Variables
+dificulty = 0
+
 @dataclass
 class GameState:
     people: List[Person]

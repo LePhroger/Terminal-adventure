@@ -15,7 +15,12 @@ if choise in gamestate.y:
 else:
     print('''No problem ',p_name,' If anything 
 type Help to recive instructions''')
-    
+
+print('What will be the amount of people in your comunity? 3 to 6 ')
+choise = int(input(''))
+
+for i in range(0,choise):
+    print('Asing people here')
 
 Alive = True
 
@@ -25,3 +30,4 @@ def Help():
 
 while Alive:
     print("Inster game here")
+    Alive = False
