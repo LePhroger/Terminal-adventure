@@ -3,10 +3,9 @@ from classes import Person, Resource
 from typing import List
 
 # Lists
-y = ['y', 'yes']
-n = ['n', 'no']
+Yes = ['y', 'yes']
+No = ['n', 'no']
 Names = ['John', 'Kevin', 'Tom', 'Sheldon', 'Joel', 'Daren']
-
 # Variables
 dificulty = 0
 
