@@ -27,7 +27,7 @@ def dificulty():
     choise = int(input(''))
 
     for i in range(0,choise):
-        person = gamestate.Person(gamestate.Names[rd.randint(0,5)],4,10,2)
+        person = gamestate.Person(gamestate.Names[rd.randint(0,5)],4,0,10,False)
         People.append(person)
     
 dificulty()

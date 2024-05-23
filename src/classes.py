@@ -7,6 +7,7 @@ class Status(Enum):
     NONE = 0
     FREEZING = 1
     STARVING = 2
+    BUSY = 3
 
 @dataclass
 class Person:
