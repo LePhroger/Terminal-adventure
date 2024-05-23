@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Test Event",
+        "text": "lorem ipsum\ndolor",
+        "effect": {
+            "morale": -1,
+            "heat": 1
+        }
+    },
+    {
+        "name": "Test Event 2",
+        "text": "lorem ipsum\ndolor",
+        "question": "What will we do?",
+        "responses": {
+            "Answer 1": {
+                "morale": 2
+            },
+            "Answer 2": {
+                "heat": 2
+            }
+        }
+    }
+]
