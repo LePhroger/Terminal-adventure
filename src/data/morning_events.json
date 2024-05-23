@@ -19,5 +19,21 @@
                 "heat": 2
             }
         }
+    },
+
+    {
+
+        "name": "Normal",
+        "text": "lorem ipsum\ndolor",
+        "question": "What will we do?",
+        "responses": {
+            "Answer 1": {
+                "morale" : 0
+            },
+            "Answer 2": {
+                "morale": 1,
+                "heat": 1
+            }
+        }
     }
 ]
