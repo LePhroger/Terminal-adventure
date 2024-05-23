@@ -1,6 +1,7 @@
 from classes import Person, Resource, Status
 from displayer import Displayer
 from gamestate import GameState
+from event import Event
 from getch import getch
 
 class GameLoop:
@@ -10,7 +11,7 @@ class GameLoop:
 
     def do_day(self):
         # Morning Phase
-        self.displayer.prompt("Hello\nYou had some event happen!\n\nPress any key to continue...")
+        self.question(list(Event.generate_morning_events())[1])
 
     def choose_person(self):
         self.state.people[0].selected = True
@@ -72,6 +73,33 @@ class GameLoop:
 
         return self.state.resources[i]
 
+    def question(self, event):
+        self.displayer.screen()
+        choices = event.choices
+
+        self.displayer.heading(event.name)
+        self.displayer.question(0, event.content, event.question, choices)
+
+        i = 0
+        while True:
+            chr = getch()
+
+            if chr == 'w':
+                i -= 1
+            if chr == 's':
+                i += 1
+
+            if i < 0:
+                i = 0
+            if i >= len(choices):
+                i = len(choices) - 1
+
+            if ord(chr) == 13:
+                break
+
+            self.displayer.screen()
+            self.displayer.heading(event.name)
+            self.displayer.question(i, event.content, event.question, choices)
 
 p = Person("Jack", 4, Status.FREEZING, 4)
 p2 = Person("Ana", 5, Status.NONE, 0)

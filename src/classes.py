@@ -55,7 +55,6 @@ class Resource:
         string += " | "
         string += colored(f"{self.name.rjust(6, ' ')}", self.color)
         return string
-    
 
 
 

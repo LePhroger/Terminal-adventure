@@ -73,24 +73,27 @@ class Displayer:
         self.line()
 
     def prompt(self, text):
-        self.screen()
-        
-        space = 0
         for line in text.split('\n'):
-            new_space = math.floor((self.witdh - len(line)) / 2)
-            if new_space < space:
-                space = new_space
-
-        for line in text.split('\n'):
+            space = math.floor((self.witdh - len(line)) / 2)
             print(f"{' ' * space}{line}")
 
         return space
 
-    def question(self, i, text, question, choices):
-        self.screen()
-
+    def question(self, selected, text, question, choices):
         self.prompt(text)
-        print("\n")
-        self.prompt(question)
+        print()
+        space = self.prompt(question)
+
+        longest = max(choices, key=lambda c: len(c))
+
+        for i, choice in enumerate(choices):
+            string = f"{(space - 1) * ' '} - {choice.ljust(len(longest), ' ')}"
+
+            if i == selected:
+                string += " <"
+
+            print(string)
+            
+
 
         
